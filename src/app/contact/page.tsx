@@ -51,7 +51,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-medium text-sm mb-1">Location</h3>
-                <p className="text-sm text-secondary">Remote / Worldwide</p>
+                <p className="text-sm text-secondary">Sahiwal, Pakistan</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 <h3 className="font-medium text-sm mb-1">Availability</h3>
                 <p className="text-sm text-secondary flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
-                  Open to new opportunities
+                  Student · Learning Frontend Development
                 </p>
               </div>
             </div>
