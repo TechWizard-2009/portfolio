@@ -40,8 +40,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-medium text-sm mb-1">Email</h3>
-                <a href="mailto:hello@example.com" className="text-sm text-primary hover:underline">
-                  hello@example.com
+                <a href="mailto:towork009@gmail.com" className="text-sm text-primary hover:underline">
+                  towork009@gmail.com
                 </a>
               </div>
             </div>

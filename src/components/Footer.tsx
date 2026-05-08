@@ -19,9 +19,8 @@ const footerLinks = [
   {
     title: "Social",
     links: [
-      { label: "GitHub", href: "https://github.com" },
-      { label: "LinkedIn", href: "https://linkedin.com" },
-      { label: "Twitter", href: "https://twitter.com" },
+      { label: "GitHub", href: "https://github.com/TechWizard-2009" },
+      { label: "Instagram", href: "https://www.instagram.com/" },
     ],
   },
 ];
