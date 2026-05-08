@@ -1,4 +1,4 @@
-import { Briefcase, GraduationCap, MapPin, Mail, Globe, Link2, Send, AtSign } from "lucide-react";
+import { GraduationCap, MapPin, AtSign, Code } from "lucide-react";
 
 function GithubIcon() {
   return (
@@ -19,48 +19,33 @@ function LinkedinIcon() {
   );
 }
 
-function TwitterIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 4s-7 11-12 11c-3 0-5-3-5-5 3 0 5-2 5-2s-3 0-3-3c0 0 2 0 3 1s3 2 5 2 5-2 5-2z" />
-      <path d="M18 18c-2 0-3-1-3-3 1 0 2 .5 3 1s2 2 3 2c1 0 2-1 2-1s-2 1-3 1z" />
-    </svg>
-  );
-}
-
-const experience = [
+const journey = [
   {
-    role: "Senior Full-Stack Engineer",
-    company: "TechCorp",
-    period: "2023 - Present",
-    description: "Leading observability infrastructure and building internal monitoring tools. Reduced incident response time by 40%.",
+    title: "Frontend Development",
+    organization: "Bano Qabil",
+    period: "Present",
+    description: "Actively building my career in frontend development, gaining practical experience in modern web technologies and building responsive, interactive websites.",
   },
   {
-    role: "Backend Engineer",
-    company: "DataSystems Inc",
-    period: "2021 - 2023",
-    description: "Built high-throughput log processing pipelines and real-time analytics dashboards handling millions of events.",
-  },
-  {
-    role: "DevOps Engineer",
-    company: "CloudFirst",
-    period: "2019 - 2021",
-    description: "Managed Kubernetes clusters, CI/CD pipelines, and implemented comprehensive monitoring across multi-cloud environments.",
+    title: "Self-Taught Developer",
+    organization: "Personal Projects",
+    period: "Ongoing",
+    description: "Constantly exploring new technologies, improving problem-solving abilities, and challenging myself with real-world projects to turn ideas into reality.",
   },
 ];
 
 const education = [
   {
-    degree: "M.S. Computer Science",
-    school: "University of Technology",
-    period: "2017 - 2019",
-    focus: "Distributed Systems & Cloud Computing",
+    degree: "Intermediate (1st Year)",
+    school: "Government College Sahiwal",
+    period: "Present",
+    focus: "Computer Science",
   },
   {
-    degree: "B.S. Computer Science",
-    school: "State University",
-    period: "2013 - 2017",
-    focus: "Software Engineering & Data Structures",
+    degree: "Matriculation",
+    school: "Comprehensive Sahiwal",
+    period: "Completed",
+    focus: "Science",
   },
 ];
 
@@ -73,19 +58,29 @@ export default function AboutPage() {
           <h1 className="text-4xl font-bold tracking-tight mb-6">About Me</h1>
           <div className="space-y-4 text-secondary leading-relaxed">
             <p>
-              I'm a full-stack engineer passionate about building reliable, observable systems.
-              My focus is on the intersection of infrastructure, developer experience, and
-              production reliability.
+              I'm a passionate frontend developer and tech enthusiast who enjoys building modern,
+              responsive, and user-friendly websites. I work with HTML, CSS, JavaScript, React,
+              and Tailwind CSS to create clean and interactive web experiences. I'm always learning
+              new technologies, improving my skills, and exploring creative ways to turn ideas into
+              real projects.
             </p>
             <p>
-              With 5+ years of experience in observability tooling, I've built monitoring platforms,
-              log management systems, and incident response workflows used by engineering teams worldwide.
-              I believe that good tooling makes the difference between firefighting and proactive engineering.
+              I am a dedicated student currently pursuing my Intermediate (1st Year) at Government
+              College Sahiwal. I completed my Matriculation from Comprehensive Sahiwal, where I
+              developed a strong academic foundation and discovered my deep interest in technology
+              and creativity.
             </p>
             <p>
-              When I'm not debugging production systems, you'll find me writing technical guides,
-              contributing to open-source observability projects, or experimenting with eBPF and
-              new tracing technologies.
+              Alongside my academic journey, I am actively building my career in Frontend Development
+              through Bano Qabil, continuously improving my technical skills and gaining practical
+              experience. I enjoy problem-solving, designing smooth user interfaces, and building
+              projects that combine functionality with great design.
+            </p>
+            <p>
+              My goal is to become a skilled software developer who combines creativity, innovation,
+              and technical expertise to build impactful digital experiences. I strongly believe in
+              continuous learning, hard work, and self-improvement, and I am always eager to expand
+              my knowledge and take on new challenges in the tech world.
             </p>
           </div>
         </div>
@@ -94,13 +89,13 @@ export default function AboutPage() {
         <div className="space-y-6">
           <div className="p-6 rounded-xl border border-border bg-surface">
             <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <span className="text-3xl font-bold text-primary">DS</span>
+              <span className="text-3xl font-bold text-primary">AA</span>
             </div>
-            <h3 className="font-semibold text-lg">DevStack</h3>
-            <p className="text-sm text-secondary mt-1">Senior Full-Stack Engineer</p>
+            <h3 className="font-semibold text-lg">Arham Ali</h3>
+            <p className="text-sm text-secondary mt-1">Frontend Developer</p>
             <div className="flex items-center gap-2 mt-3 text-sm text-secondary">
               <MapPin size={14} />
-              <span>Remote / Worldwide</span>
+              <span>Sahiwal, Pakistan</span>
             </div>
           </div>
 
@@ -119,47 +114,40 @@ export default function AboutPage() {
                 className="flex items-center gap-3 text-sm text-secondary hover:text-foreground transition-colors"
               >
                 <GithubIcon />
-                github.com/devstack
+                github.com/arhamali
               </a>
               <a
                 href="https://linkedin.com"
                 className="flex items-center gap-3 text-sm text-secondary hover:text-foreground transition-colors"
               >
                 <LinkedinIcon />
-                linkedin.com/in/devstack
-              </a>
-              <a
-                href="https://twitter.com"
-                className="flex items-center gap-3 text-sm text-secondary hover:text-foreground transition-colors"
-              >
-                <TwitterIcon />
-                @devstack
+                linkedin.com/in/arhamali
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Experience */}
+      {/* Learning Journey */}
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <Briefcase className="h-5 w-5 text-primary" />
-          <h2 className="text-2xl font-bold tracking-tight">Experience</h2>
+          <Code className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-bold tracking-tight">Learning Journey</h2>
         </div>
         <div className="space-y-6">
-          {experience.map((exp) => (
+          {journey.map((item) => (
             <div
-              key={exp.role}
+              key={item.title}
               className="p-6 rounded-xl border border-border bg-surface hover:bg-surface-hover transition-colors"
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                 <div>
-                  <h3 className="font-semibold text-lg">{exp.role}</h3>
-                  <p className="text-sm text-primary font-medium">{exp.company}</p>
+                  <h3 className="font-semibold text-lg">{item.title}</h3>
+                  <p className="text-sm text-primary font-medium">{item.organization}</p>
                 </div>
-                <span className="text-xs font-mono text-secondary whitespace-nowrap">{exp.period}</span>
+                <span className="text-xs font-mono text-secondary whitespace-nowrap">{item.period}</span>
               </div>
-              <p className="text-sm text-secondary leading-relaxed">{exp.description}</p>
+              <p className="text-sm text-secondary leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
