@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Mail, MessageSquare, Send, CheckCircle, MapPin, Globe } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { Mail, MessageSquare, Send, CheckCircle, MapPin, Globe, Loader } from "lucide-react";
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,10 +16,25 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setSending(true);
+    setError("");
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      setSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch {
+      setError("Failed to send. Please try again or email me directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -98,7 +117,7 @@ export default function ContactPage() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -161,12 +180,16 @@ export default function ContactPage() {
                   placeholder="Tell me about your project or question..."
                 />
               </div>
+              {error && (
+                <p className="text-sm text-danger">{error}</p>
+              )}
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 h-12 px-8 rounded-lg bg-primary text-white font-medium hover:bg-primary-hover transition-colors"
+                disabled={sending}
+                className="inline-flex items-center gap-2 h-12 px-8 rounded-lg bg-primary text-white font-medium hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send size={16} />
-                Send Message
+                {sending ? <Loader size={16} className="animate-spin" /> : <Send size={16} />}
+                {sending ? "Sending..." : "Send Message"}
               </button>
             </form>
           )}
