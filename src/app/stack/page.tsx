@@ -1,13 +1,4 @@
 import { skillCategories } from "@/lib/skills";
-import { Code, Database, Server, Layout, LineChart } from "lucide-react";
-
-const categoryIcons: Record<string, typeof Code> = {
-  Frontend: Layout,
-  Backend: Code,
-  Databases: Database,
-  "Infrastructure & DevOps": Server,
-  Observability: LineChart,
-};
 
 export default function StackPage() {
   return (
@@ -50,22 +41,16 @@ export default function StackPage() {
 
       {/* Skill Categories */}
       <div className="space-y-12">
-        {skillCategories.map((category) => {
-          const Icon = categoryIcons[category.name] ?? Code;
-          return (
-            <div key={category.name}>
-              <div className="flex items-center gap-3 mb-6">
-                <Icon className="h-5 w-5 text-primary" />
-                <h2 className="text-xl font-semibold">{category.name}</h2>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {category.skills.map((skill) => (
-                  <SkillCard key={skill.name} skill={skill} />
-                ))}
-              </div>
+        {skillCategories.map((category) => (
+          <div key={category.name}>
+            <h2 className="text-xl font-semibold mb-6">{category.name}</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {category.skills.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} />
+              ))}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );
