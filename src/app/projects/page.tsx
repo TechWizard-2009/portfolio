@@ -125,7 +125,7 @@ export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-2xl mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Dev Projects</h1>
         <p className="mt-4 text-secondary leading-relaxed">
           A showcase of projects I&apos;ve built across different domains.
         </p>

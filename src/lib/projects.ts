@@ -32,6 +32,14 @@ export const projects: Project[] = [
     repo: "https://github.com/TechWizard-2009/University-of-Sahiwal",
     category: "Academic",
   },
+  {
+    id: "bq-store",
+    title: "BQ Store",
+    description: "An elegant e-commerce storefront for luxury scents and perfumes — LUXE AROMA — with a refined shopping experience and product catalog.",
+    url: "https://bq-store-pied.vercel.app/",
+    repo: "https://github.com/TechWizard-2009/bq-store",
+    category: "E-commerce",
+  },
 ];
 
 export const projectCategories = ["All", "E-commerce", "AI generated", "Academic", "ForFun"] as const;
