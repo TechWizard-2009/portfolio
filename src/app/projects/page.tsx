@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ExternalLink } from "lucide-react";
 import { projects, projectCategories, type Project, type ProjectCategory } from "@/lib/projects";
+import { designs, type Design } from "@/lib/designs";
 
 function Screenshot({ url, title }: { url: string; title: string }) {
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
@@ -42,6 +43,41 @@ function Screenshot({ url, title }: { url: string; title: string }) {
       className="w-full h-48 object-cover rounded-t-xl"
       onError={() => setError(true)}
     />
+  );
+}
+
+function FigmaIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" />
+      <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
+      <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" />
+      <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" />
+      <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
+    </svg>
+  );
+}
+
+function DesignCard({ design }: { design: Design }) {
+  return (
+    <div className="group rounded-xl border border-border bg-surface overflow-hidden transition-all hover:shadow-lg hover:shadow-primary/5">
+      <a href={design.url} target="_blank" rel="noopener noreferrer">
+        <Screenshot url={design.url} title={design.title} />
+      </a>
+      <div className="p-5">
+        <h3 className="text-lg font-semibold mb-2">{design.title}</h3>
+        <p className="text-sm text-secondary leading-relaxed mb-5">{design.description}</p>
+        <a
+          href={design.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium hover:opacity-90 transition-opacity"
+        >
+          <FigmaIcon />
+          View on Figma
+        </a>
+      </div>
+    </div>
   );
 }
 
@@ -123,6 +159,20 @@ export default function ProjectsPage() {
           <p className="text-secondary">No projects in this category yet.</p>
         </div>
       )}
+
+      {/* UI/UX Designs */}
+      <hr className="my-20 border-border" />
+      <div className="max-w-2xl mb-12">
+        <h2 className="text-3xl font-bold tracking-tight">UI/UX Designs</h2>
+        <p className="mt-4 text-secondary leading-relaxed">
+          A collection of UI/UX design concepts created in Figma.
+        </p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {designs.map((design) => (
+          <DesignCard key={design.id} design={design} />
+        ))}
+      </div>
     </div>
   );
 }
